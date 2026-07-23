@@ -5,7 +5,7 @@ export function HeroBlock() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16"
+      className="relative min-h-[100dvh] flex items-center overflow-hidden pt-24 pb-16"
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
