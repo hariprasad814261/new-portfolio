@@ -1,5 +1,5 @@
-import { ArrowDown, ArrowRight, Mail } from 'lucide-react';
-
+import { ArrowDown, ArrowRight, Mail, Sparkles, Shield, Clock } from 'lucide-react';
+import { HeroVisual } from './HeroVisual';
 
 export function HeroBlock() {
   return (
@@ -9,9 +9,9 @@ export function HeroBlock() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* ── Left Column — Text Content ──────── */}
+          {/* ── Left Column — Editorial Content ──────── */}
           <div className="relative z-20">
-            {/* Badge */}
+            {/* AI Automation Badge */}
             <div
               className="inline-flex items-center gap-2 glass-card rounded-full px-4 py-1.5 mb-8"
               style={{
@@ -25,7 +25,7 @@ export function HeroBlock() {
               </span>
             </div>
 
-            {/* Title */}
+            {/* Headline */}
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[-0.03em] leading-[1.1] mb-6"
               style={{
@@ -40,9 +40,9 @@ export function HeroBlock() {
               </span>
             </h1>
 
-            {/* Subtitle */}
+            {/* Founder Description */}
             <p
-              className="text-lg sm:text-xl text-zinc-400 font-light leading-relaxed max-w-lg mb-10"
+              className="text-base sm:text-lg md:text-xl text-zinc-400 font-light leading-relaxed max-w-lg mb-10"
               style={{
                 animation: 'animationIn 0.8s ease-out 200ms forwards',
                 opacity: 0,
@@ -55,7 +55,7 @@ export function HeroBlock() {
 
             {/* CTA Buttons */}
             <div
-              className="flex flex-wrap gap-4"
+              className="flex flex-wrap gap-3 sm:gap-4"
               style={{
                 animation: 'animationIn 0.8s ease-out 300ms forwards',
                 opacity: 0,
@@ -64,7 +64,7 @@ export function HeroBlock() {
               {/* Primary CTA */}
               <a
                 href="#projects"
-                className="double-text-btn inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-medium text-[#09090b] transition-all duration-500 hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10"
+                className="double-text-btn inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 sm:px-7 py-3 text-sm font-medium text-[#09090b] transition-all duration-500 hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/10"
               >
                 <span className="btn-text-visible flex items-center gap-2">
                   View Projects
@@ -79,7 +79,7 @@ export function HeroBlock() {
               {/* Secondary CTA */}
               <a
                 href="mailto:hariprasadshadowoperator@gmail.com"
-                className="double-text-btn glass-card inline-flex items-center justify-center gap-2 rounded-full px-7 py-3 text-sm font-medium text-white hover:border-white/15"
+                className="double-text-btn glass-card inline-flex items-center justify-center gap-2 rounded-full px-6 sm:px-7 py-3 text-sm font-medium text-white hover:border-white/15"
               >
                 <span className="btn-text-visible flex items-center gap-2">
                   <Mail className="w-4 h-4" />
@@ -92,9 +92,33 @@ export function HeroBlock() {
               </a>
             </div>
 
+            {/* Trust Indicators */}
+            <div
+              className="mt-10 sm:mt-12 flex flex-wrap items-center gap-x-6 gap-y-3"
+              style={{
+                animation: 'animationIn 0.8s ease-out 400ms forwards',
+                opacity: 0,
+              }}
+            >
+              <div className="flex items-center gap-2 text-zinc-500">
+                <Sparkles className="w-3.5 h-3.5 text-[#6F7FB7]" />
+                <span className="text-xs font-medium">AI-First Approach</span>
+              </div>
+              <div className="w-px h-3 bg-zinc-800 hidden sm:block" />
+              <div className="flex items-center gap-2 text-zinc-500">
+                <Shield className="w-3.5 h-3.5 text-emerald-400/70" />
+                <span className="text-xs font-medium">Enterprise Grade</span>
+              </div>
+              <div className="w-px h-3 bg-zinc-800 hidden sm:block" />
+              <div className="flex items-center gap-2 text-zinc-500">
+                <Clock className="w-3.5 h-3.5 text-amber-400/70" />
+                <span className="text-xs font-medium">120+ Days Training</span>
+              </div>
+            </div>
+
             {/* Scroll hint */}
             <div
-              className="mt-16 flex items-center gap-3 text-zinc-600"
+              className="mt-10 sm:mt-14 flex items-center gap-3 text-zinc-600"
               style={{
                 animation: 'animationIn 0.8s ease-out 500ms forwards',
                 opacity: 0,
@@ -103,6 +127,11 @@ export function HeroBlock() {
               <div className="w-px h-8 bg-gradient-to-b from-zinc-600 to-transparent" />
               <span className="text-xs uppercase tracking-widest">Scroll to explore</span>
             </div>
+          </div>
+
+          {/* ── Right Column — Animated Visual Composition ── */}
+          <div className="hidden lg:block relative">
+            <HeroVisual />
           </div>
         </div>
       </div>
