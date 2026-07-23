@@ -1,0 +1,218 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════
+   THEME TOKENS
+   ═══════════════════════════════════════════════════ */
+@theme {
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-brand-300: #6F7FB7;
+  --color-brand-500: #4B5A8A;
+}
+
+/* ═══════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════ */
+@layer base {
+  body {
+    background-color: #09090b;
+    color: #fafafa;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Geist', 'Inter', sans-serif;
+  }
+}
+
+/* ═══════════════════════════════════════════════════
+   NO SCROLLBAR UTILITY
+   ═══════════════════════════════════════════════════ */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ═══════════════════════════════════════════════════
+   GLASS CARD — Core glassmorphism effect
+   ═══════════════════════════════════════════════════ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.05),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 0 0 0.5px rgba(255, 255, 255, 0.08),
+    0 4px 16px rgba(0, 0, 0, 0.4),
+    0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════
+   GLASS HIGHLIGHT — Shine overlay on glass cards
+   ═══════════════════════════════════════════════════ */
+.glass-highlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-highlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* ═══════════════════════════════════════════════════
+   SCROLL ANIMATION — IntersectionObserver driven
+   ═══════════════════════════════════════════════════ */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger support via data-delay attribute */
+.animate-on-scroll[data-delay="100"] { transition-delay: 100ms; }
+.animate-on-scroll[data-delay="200"] { transition-delay: 200ms; }
+.animate-on-scroll[data-delay="300"] { transition-delay: 300ms; }
+.animate-on-scroll[data-delay="400"] { transition-delay: 400ms; }
+.animate-on-scroll[data-delay="500"] { transition-delay: 500ms; }
+.animate-on-scroll[data-delay="600"] { transition-delay: 600ms; }
+
+/* ═══════════════════════════════════════════════════
+   DOUBLE TEXT BUTTON — Hover slide animation
+   ═══════════════════════════════════════════════════ */
+.double-text-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.double-text-btn .btn-text-visible {
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.double-text-btn .btn-text-hidden {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.15, 0.83, 0.66, 1);
+}
+
+.double-text-btn:hover .btn-text-visible {
+  transform: translateY(100%);
+}
+
+.double-text-btn:hover .btn-text-hidden {
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════
+   KEYFRAME ANIMATIONS
+   ═══════════════════════════════════════════════════ */
+@keyframes animationIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes lumina-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes lumina-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes lumina-scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes lumina-shine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+@keyframes lumina-highlight {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes lumina-scale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes lumina-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes lumina-load {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+/* Utility classes for the keyframe animations */
+.animate-lumina-float {
+  animation: lumina-float 4s ease-in-out infinite;
+}
+.animate-lumina-pulse {
+  animation: lumina-pulse 3s ease-in-out infinite;
+}
+.animate-lumina-scan {
+  animation: lumina-scan 3s ease-in-out infinite;
+}
+.animate-lumina-shine {
+  animation: lumina-shine 4s ease-in-out infinite;
+}
+.animate-lumina-blink {
+  animation: lumina-blink 1s step-end infinite;
+}
+.animate-lumina-load {
+  animation: lumina-load 3s ease-out forwards;
+}
