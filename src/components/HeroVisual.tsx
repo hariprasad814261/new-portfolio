@@ -31,8 +31,9 @@ function FloatingCard({ children, className = '', delay = 0, duration = 4 }: Flo
 
 export function HeroVisual() {
   return (
-    <div className="relative w-full h-[500px] sm:h-[550px] lg:h-[600px] xl:h-[650px]">
-      {/* ── Central orchestration node ──────────────────── */}
+    <div className="relative w-full h-[400px] sm:h-[500px] lg:h-[600px] xl:h-[650px] flex items-center justify-center overflow-hidden">
+      <div className="relative w-full max-w-[800px] h-full scale-[0.55] sm:scale-75 md:scale-90 lg:scale-100 origin-center">
+        {/* ── Central orchestration node ──────────────────── */}
       <FloatingCard
         className="top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] sm:w-[200px] z-30"
         delay={200}
@@ -214,6 +215,7 @@ export function HeroVisual() {
         <line x1="82%" y1="75%" x2="50%" y2="40%" stroke="url(#lineGrad)" strokeWidth="1" />
         <line x1="45%" y1="90%" x2="50%" y2="40%" stroke="url(#lineGrad)" strokeWidth="1" />
       </svg>
+      </div>
     </div>
   );
 }

@@ -98,7 +98,7 @@ export function About() {
           </div>
 
           {/* Floating secondary image */}
-          <div className="absolute -bottom-6 -left-6 w-44 h-52 sm:w-52 sm:h-60 glass-card glass-highlight rounded-2xl overflow-hidden z-20 hidden sm:block transition-all duration-500 group-hover:-rotate-3 group-hover:-translate-y-2 animate-lumina-float">
+          <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 w-32 h-40 sm:w-52 sm:h-60 glass-card glass-highlight rounded-2xl overflow-hidden z-20 transition-all duration-500 group-hover:-rotate-3 group-hover:-translate-y-2 animate-lumina-float">
             <img
               src="/founder2.jpeg"
               alt="Hari behind the scenes"

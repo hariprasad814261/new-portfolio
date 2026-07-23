@@ -130,7 +130,7 @@ export function HeroBlock() {
           </div>
 
           {/* ── Right Column — Animated Visual Composition ── */}
-          <div className="hidden lg:block relative">
+          <div className="relative mt-12 lg:mt-0">
             <HeroVisual />
           </div>
         </div>
